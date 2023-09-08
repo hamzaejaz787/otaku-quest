@@ -1,8 +1,17 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <>
-      <h1 className="text-4xl text-black">Otaku Quest</h1>
-    </>
+    <div className="bg-gray-900 min-h-screen">
+      <Router>
+        <Navbar />
+
+        <Routes>
+          <Route path="/" />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
