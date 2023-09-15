@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
 import Logo from "../assets/logo.svg";
-import avatar from "../assets/avatar.jpg";
+import LoggedIn from "../components/LoggedIn";
+import LoggedOut from "../components/LoggedOut";
 
 const Navbar = () => {
   return (
-    <nav className="pt-12 px-12 flex items-center justify-between">
+    <nav className="pt-12 px-6 flex items-center justify-between md:px-12">
       <div className="nav-links flex items-center justify-between">
         <Link to="/">
-          <img src={Logo} alt="Otaku Quest Logo" />
+          <img src={Logo} alt="Otaku Quest Logo" className="max" />
         </Link>
 
-        <ul className="flex w-full items-center">
-          <li className="py-3 px-6">
+        <ul className="hidden w-full items-center ml-6 gap-12 md:flex">
+          <li>
             <Link className="text-white transition-all hover:text-gray-400">
               Popular
             </Link>
           </li>
-          <li className="py-3 px-6">
+          <li>
             <Link className="text-white transition-all hover:text-gray-400">
               Games
             </Link>
           </li>
-          <li className="py-3 px-6">
+          <li>
             <Link className="text-white transition-all hover:text-gray-400">
               Reviews
             </Link>
           </li>
-          <li className="py-3 px-6">
+          <li>
             <Link className="text-white transition-all hover:text-gray-400">
               Support
             </Link>
@@ -35,16 +35,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="nav-search flex items-center">
-        <FiSearch
-          size={25}
-          className="text-white transition-all hover:text-gray-400 mr-6 cursor-pointer"
-        />
-
-        <Link>
-          <img src={avatar} alt="" className="w-12 h-12 rounded-full" />
-        </Link>
-      </div>
+      <LoggedOut />
     </nav>
   );
 };
