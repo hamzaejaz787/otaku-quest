@@ -7,6 +7,10 @@ export default {
         roboto: ["Roboto", "sans"],
       },
     },
+    screens: {
+      sm: "450px",
+      md: "800px",
+    },
   },
   plugins: [],
 };

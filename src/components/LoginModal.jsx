@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { AiOutlineClose } from "react-icons/ai";
 
 const LoginModal = ({ isOpen, onClose }) => {
