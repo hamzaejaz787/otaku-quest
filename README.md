@@ -61,8 +61,3 @@ Contributions to this project are welcome. You can contribute by opening issues,
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Special thanks to the MyAnimeList and gaming API providers for enabling access to their data.
-- This project is inspired by a love for anime and gaming and the desire to build a valuable resource for enthusiasts.

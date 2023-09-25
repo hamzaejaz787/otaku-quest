@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 import LoggedIn from "../components/LoggedIn";
 import LoggedOut from "../components/LoggedOut";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { toast } from "react-toastify";
 
 const navLinks = [
   { id: "trending", title: "Trending", href: "/trending" },
@@ -15,7 +18,17 @@ const navLinks = [
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = useState(false);
-  const [loggedUser, setLoggedUser] = useState(false);
+  const isUser = localStorage.getItem("user");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        localStorage.removeItem("user");
+        navigate("/login");
+      })
+      .catch((err) => toast.error(err));
+  };
 
   return (
     <nav className="w-full pt-10 flex justify-between items-center md:px-12 px-5 relative">
@@ -38,7 +51,7 @@ const Navbar = () => {
             <img src={Logo} alt="Otaku Quest" className="w-32 sm:w-48" />
           </Link>
 
-          {loggedUser ? <LoggedIn /> : <LoggedOut />}
+          {isUser ? <LoggedIn handleLogout={handleLogout} /> : <LoggedOut />}
         </div>
 
         <Link to="/" className="hidden md:block">
@@ -79,7 +92,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:block">
-        {loggedUser ? <LoggedIn /> : <LoggedOut />}
+        {isUser ? <LoggedIn handleLogout={handleLogout} /> : <LoggedOut />}
       </div>
     </nav>
   );
