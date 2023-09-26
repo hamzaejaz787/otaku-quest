@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   FacebookAuthProvider,
+  sendEmailVerification,
 } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -13,8 +14,6 @@ import { toast } from "react-toastify";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const provider = new GoogleAuthProvider();
-
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -29,10 +28,16 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+
     await signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
+
+        if (!auth.currentUser.emailVerified) {
+          sendEmailVerification(auth.currentUser);
+        }
 
         if (token) {
           localStorage.setItem("user", token);
@@ -53,6 +58,10 @@ const Login = () => {
       .then((result) => {
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
+
+        if (!auth.currentUser.emailVerified) {
+          sendEmailVerification(auth.currentUser);
+        }
 
         if (token) {
           localStorage.setItem("user", token);
@@ -80,14 +89,14 @@ const Login = () => {
       .catch((err) => {
         toast.error(err.code, err.message);
 
-        console.log(err.code, err.messagee);
+        console.log(err.code, err.message);
       });
   };
 
   return (
     <>
-      <div className="flex h-screen items-center justify-center mt-16">
-        <div className="w-full max-w-md bg-gray-800 rounded p-8">
+      <div className="flex h-screen items-center justify-center mt-16 px-4 sm:px-0">
+        <div className="w-full max-w-md bg-gray-800 rounded px-4 sm:px-8 py-8">
           <h1 className="mt-6 text-center text-3xl font-bold text-white">
             Welcome Back!!
           </h1>

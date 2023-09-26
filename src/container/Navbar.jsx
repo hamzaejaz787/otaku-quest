@@ -74,16 +74,18 @@ const Navbar = () => {
             <div
               className={`${
                 navToggle ? "translate-x-0" : "translate-x-full"
-              } md:hidden absolute top left-0 top-24 bg-gray-800 transition-transform duration-300 transform`}
+              } w-full md:hidden absolute top left-0 top-24 bg-gray-800 transition-transform duration-300 transform`}
             >
-              <ul className="flex flex-col justify-between py-8 gap-2">
+              <ul className="flex flex-col justify-between py-4 gap-2">
                 {navLinks.map((nav) => (
-                  <li
+                  <Link
+                    onClick={() => setNavToggle(false)}
                     key={nav.id}
                     className="text-white text-xl text py-4 px-10 cursor-pointer transition-all duration-200 hover:bg-red-700 "
+                    to={nav.href}
                   >
-                    <Link to={nav.href}>{nav.title}</Link>
-                  </li>
+                    {nav.title}
+                  </Link>
                 ))}
               </ul>
             </div>
