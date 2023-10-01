@@ -14,6 +14,9 @@ export default {
       xl: "1280px",
       "2xl": "1536px",
     },
+    gridTemplateColumns: {
+      fluid: "repeat(auto-fit,minmax(15rem,1fr))",
+    },
   },
   plugins: [],
 };

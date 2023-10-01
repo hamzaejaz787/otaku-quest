@@ -22,7 +22,7 @@ Otaku Quest is a platform that offers personalized recommendations for anime and
 
 ### Data Sources
 
-- **MyAnimeList (MAL) API:** The app fetches anime data from the MyAnimeList API to provide up-to-date information about anime titles, genres, descriptions, and ratings.
+- **Jikan API**: For anime-related data, including titles, descriptions, episodes, characters, and user ratings. We use the Jikan API to access this data securely.
 
 - **Gaming API (TBD):** In a later phase of the project, a gaming API will be integrated to fetch information about video games, including titles, genres, descriptions, and user ratings.
 
