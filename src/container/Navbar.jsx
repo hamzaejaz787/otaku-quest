@@ -74,7 +74,7 @@ const Navbar = () => {
             <div
               className={`${
                 navToggle ? "translate-x-0" : "translate-x-full"
-              } w-full md:hidden absolute top left-0 top-24 bg-gray-800 transition-transform duration-300 transform`}
+              } w-full md:hidden absolute top z-50 left-0 top-24 bg-gray-800 transition-transform duration-300 transform`}
             >
               <ul className="flex flex-col justify-between py-4 gap-2">
                 {navLinks.map((nav) => (

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -30,4 +31,23 @@
   border-color: gray;
   border-color: #dc2626 transparent #991b1b transparent;
   border-radius: 50%;
+}
+
+.swiper-pagination-bullet {
+  background: #fff;
+}
+
+.swiper-pagination-bullet-active {
+  background: #dc2626;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #dc2626;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover:after,
+.swiper-button-next:hover:after {
+  color: #991b1b;
 }
