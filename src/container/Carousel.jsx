@@ -28,7 +28,9 @@ const Carousel = () => {
       <Swiper
         rewind={true}
         pagination={pagination}
-        //autoplay={{ delay: 4000, disableOnInteraction: false }}
+        autoHeight={true}
+        lazy={true}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
@@ -44,7 +46,12 @@ const Carousel = () => {
                 className="cursor-grab active:cursor-grabbing"
               >
                 <div className="flex flex-col md:flex-row justify-between items-center py-10 px-8">
-                  <img src={imageLarge} alt="" className="w-full sm:w-auto" />
+                  <img
+                    src={imageLarge}
+                    alt=""
+                    className="w-full sm:w-auto"
+                    loading="lazy"
+                  />
 
                   <div className="w-full h-full text-white pt-10  md:p-12">
                     <h1 className="text-4xl font-bold font-montserrat mb-2">
