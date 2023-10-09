@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect } from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
-import Fetch from "../contexts/Fetch";
+import Fetch from "../data/Fetch";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +22,9 @@ const Carousel = () => {
   });
   const pagination = { clickable: true };
 
-  if (error) return toast.error(error.message);
+  useEffect(() => {
+    if (error) return toast.error(error.message);
+  }, [error]);
 
   return (
     <>
@@ -49,7 +52,7 @@ const Carousel = () => {
                   <img
                     src={imageLarge}
                     alt=""
-                    className="w-full sm:w-auto"
+                    className="w-full min-h-100 sm:w-auto"
                     loading="lazy"
                   />
 
@@ -58,7 +61,9 @@ const Carousel = () => {
                       {title_english != null ? title_english : title}
                     </h1>
                     <em className="text-gray-500">{status}</em>
-                    <p className="mt-4">{synopsis ? synopsis : "N/A"}</p>
+                    <p className="mt-4">
+                      {synopsis ? synopsis.slice(0, 200) + "..." : "N/A"}
+                    </p>
                   </div>
                 </div>
               </SwiperSlide>

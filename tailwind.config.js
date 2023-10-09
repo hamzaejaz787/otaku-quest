@@ -17,6 +17,9 @@ export default {
       gridTemplateColumns: {
         fluid: "repeat(auto-fit,minmax(15rem,1fr))",
       },
+      minHeight: {
+        100: "600px",
+      },
     },
   },
   plugins: [],
