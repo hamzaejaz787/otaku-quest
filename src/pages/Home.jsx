@@ -1,9 +1,9 @@
-import Carousel from "../container/Carousel";
+import Hero from "../container/Hero";
 
 const Home = () => {
   return (
     <>
-      <Carousel />
+      <Hero />
     </>
   );
 };

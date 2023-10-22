@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -35,10 +35,16 @@
 
 .swiper-pagination-bullet {
   background: #fff;
+  height: 9px;
+  width: 9px;
+}
+
+.swiper-pagination-bullet:hover {
+  opacity: 0.6;
 }
 
 .swiper-pagination-bullet-active {
-  background: #dc2626;
+  background: #dc2626 !important;
 }
 
 .swiper-button-prev:after,
@@ -50,4 +56,29 @@
 .swiper-button-prev:hover:after,
 .swiper-button-next:hover:after {
   color: #991b1b;
+}
+
+@media screen and (max-width: 500px) {
+  .swiper-pagination-bullet {
+    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets {
+    top: calc(5% - 18px);
+    right: 15px;
+    left: auto;
+    width: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    flex-direction: column;
+  }
+
+  .swiper-autoheight,
+  .swiper-autoheight .swiper-slide {
+    height: 100%;
+  }
 }

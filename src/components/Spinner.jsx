@@ -1,8 +1,12 @@
 const Spinner = () => {
   return (
-    <div className="loadingSpinnerContainer">
-      <div className="loadingSpinner animate-spin"></div>
-    </div>
+    <>
+      <div className="loadingSpinnerContainer">
+        <div className="loadingSpinner animate-spin"></div>
+
+        <h1 className="text-white pl-4 text-lg">Getting Data...</h1>
+      </div>
+    </>
   );
 };
 

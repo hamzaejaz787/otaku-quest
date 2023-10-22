@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../assets/logo.svg";
-import LoggedIn from "../components/LoggedIn";
-import LoggedOut from "../components/LoggedOut";
+import { toast } from "react-toastify";
 import { FiMenu, FiSearch } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import { toast } from "react-toastify";
+import Logo from "../assets/logo.svg";
+import LoggedIn from "../components/LoggedIn";
+import LoggedOut from "../components/LoggedOut";
 
 const navLinks = [
   { id: "trending", title: "Trending", href: "/trending" },
