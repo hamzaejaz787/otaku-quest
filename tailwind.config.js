@@ -20,6 +20,9 @@ export default {
       height: {
         "5px": "500px",
       },
+      minHeight: {
+        250: "150px",
+      },
     },
   },
   plugins: [],

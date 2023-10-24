@@ -33,6 +33,7 @@ const Hero = () => {
           data.map((anime) => {
             const { titles, posterImage, synopsis, status, showType } =
               anime.attributes;
+
             return (
               <SwiperSlide
                 key={anime.id}
@@ -55,7 +56,11 @@ const Hero = () => {
                       {synopsis ? synopsis.slice(0, 100) + "..." : "N/A"}
                     </p>
 
-                    <Link className="inline-block rounded-md border border-transparent bg-red-800 py-2 px-4 md:text-lg font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200">
+                    <Link
+                      to={`/details/kitsu/${anime.id}`}
+                      onClick={() => window.scrollTo({ top: 0 })}
+                      className="inline-block rounded-md border border-transparent bg-red-800 py-2 px-4 md:text-lg font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200"
+                    >
                       Details
                     </Link>
                   </div>

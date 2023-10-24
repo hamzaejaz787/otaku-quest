@@ -34,7 +34,7 @@
 }
 
 .swiper-pagination-bullet {
-  background: #fff;
+  background: #fff !important;
   height: 9px;
   width: 9px;
 }
@@ -65,12 +65,12 @@
   }
 
   .swiper-horizontal > .swiper-pagination-bullets {
-    top: calc(5% - 18px);
-    right: 15px;
-    left: auto;
-    width: 20px;
-    display: flex;
+    top: calc(5% - 18px) !important;
+    right: 15px !important;
+    left: auto !important;
+    width: 20px !important;
     gap: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 50%;
@@ -79,6 +79,6 @@
 
   .swiper-autoheight,
   .swiper-autoheight .swiper-slide {
-    height: 100%;
+    height: 100% !important;
   }
 }

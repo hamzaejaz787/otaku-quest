@@ -10,10 +10,10 @@ import LoggedIn from "../components/LoggedIn";
 import LoggedOut from "../components/LoggedOut";
 
 const navLinks = [
-  { id: "trending", title: "Trending", href: "/trending" },
   { id: "games", title: "Games", href: "/games" },
-  { id: "anime", title: "Anime", href: "/anime" },
-  { id: "reviews", title: "Reviews", href: "/reviews" },
+  { id: "anime", title: "Anime", href: "/details" },
+  { id: "manga", title: "Manga", href: "/manga" },
+  { id: "support", title: "Support", href: "/support" },
 ];
 
 const Navbar = () => {
