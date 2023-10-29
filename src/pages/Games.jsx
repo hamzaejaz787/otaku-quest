@@ -1,13 +1,40 @@
-import { IoIosConstruct } from "react-icons/io";
+import { getRecentGames } from "../data/Rawg";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import Spinner from "../components/Spinner";
 
 const Games = () => {
+  const { data, isLoading, error } = getRecentGames();
+
+  useEffect(() => {
+    if (error) toast.error(error.message);
+  }, [error]);
+
+  if (isLoading) return <Spinner />;
   return (
-    <div className="px-12 my-24 mx-auto">
-      <h1 className="flex justify-center items-center text-white text-4xl">
-        Page Under Development!!
-        <IoIosConstruct className="ml-4" />
-      </h1>
-    </div>
+    <section className="p-4 grid grid-cols-fluid gap-8">
+      {data &&
+        data.map((game) => {
+          const { name, released, background_image, rating, id } = game;
+
+          const formattedDate = new Date(released).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          return (
+            <div key={id} className="mb-8">
+              <img src={background_image} className="max-w-xs" alt="" />
+              <h1 className="text-white">{name}</h1>
+              <h2 className="text-white">
+                Rating: <span>{rating}</span>
+              </h2>
+              <h3 className="text-white">Relase Date: {formattedDate}</h3>
+            </div>
+          );
+        })}
+    </section>
   );
 };
 

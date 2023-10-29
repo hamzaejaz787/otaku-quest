@@ -25,7 +25,7 @@ const Hero = () => {
         loop={true}
         pagination={pagination}
         autoHeight={true}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >

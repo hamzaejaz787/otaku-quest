@@ -15,7 +15,7 @@ export default {
         "2xl": "1536px",
       },
       gridTemplateColumns: {
-        fluid: "repeat(auto-fit,minmax(15rem,1fr))",
+        fluid: "repeat(auto-fit,minmax(350px,1fr))",
       },
       height: {
         "5px": "500px",

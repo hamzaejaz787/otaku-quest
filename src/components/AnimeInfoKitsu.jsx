@@ -1,16 +1,16 @@
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { FaEye, FaHeart, FaMedal, FaPlus } from "react-icons/fa";
 import { getAnimeById } from "../data/Kitsu";
 import Spinner from "./Spinner";
-import { toast } from "react-toastify";
-import { FaEye, FaHeart, FaMedal, FaPlus } from "react-icons/fa";
 
 const AnimeInfoKitsu = () => {
   const params = useParams();
   const { data, error, isLoading } = getAnimeById(params.id);
 
   useEffect(() => {
-    if (error) return toast.error(error.message);
+    if (error) toast.error(error.message);
   }, [error]);
 
   if (isLoading) return <Spinner />;
