@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const baseURL = "http://localhost:3000/";
+const baseURL = import.meta.env.VITE_FIREBASE_FUNCTIONS_URL;
 
 const executeQuery = (queryKey, endpoint) => {
   return useQuery(queryKey, async () => {
     const response = await axios.get(`${baseURL + endpoint}`).catch((err) => {
       console.log(err);
+      throw err;
     });
 
     return response.data;
@@ -21,7 +22,7 @@ const handleRawgResponse = (queryKey, endpoint) => {
 };
 
 export function getRecentGames() {
-  return handleRawgResponse(["recent-games"], "recent-anime");
+  return handleRawgResponse(["recent-games"], "recent-games");
 }
 
 export function getTrendingGames() {
