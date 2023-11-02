@@ -73,7 +73,10 @@ const Navbar = () => {
 
           <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
             <fieldset className="flex items-center space-x-2 border-2 rounded-full py-1 px-2 sm:px-4 transition-all duration-200 focus-within:border-red-600">
-              <FiSearch size={20} className="h-5 w-5 flex-none text-gray-400" />
+              <FiSearch
+                size={20}
+                className="h-5 w-5 flex-none text-gray-400 cursor-pointer hover:text-gray-200 duration-200 transition-all"
+              />
               <input
                 type="text"
                 placeholder="Search..."

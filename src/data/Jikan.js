@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { apiQueueRequest } from "./apiQueue";
 
-function executeQuery(queryKey, endpoint) {
+function ExecuteQuery(queryKey, endpoint) {
   return useQuery(queryKey, async () => {
     return await apiQueueRequest(endpoint);
   });
 }
 
 export function handleJikanResponse(queryKey, endpoint) {
-  const res = executeQuery(queryKey, endpoint);
+  const res = ExecuteQuery(queryKey, endpoint);
   const data = res.data?.data.data;
   return { data: data, isLoading: res.isLoading, error: res.error };
 }

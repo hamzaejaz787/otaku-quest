@@ -1,4 +1,4 @@
-import TrendingGames from "../components/TrendingGames";
+import TrendingGames from "../container/TrendingGames";
 import Hero from "../container/Hero";
 
 const Home = () => {

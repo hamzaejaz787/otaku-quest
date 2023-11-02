@@ -3,7 +3,7 @@ import axios from "axios";
 
 const baseURL = "https://kitsu.io/api/edge/";
 
-const executeQuery = (queryKey, endpoint) => {
+const ExecuteQuery = (queryKey, endpoint) => {
   return useQuery(queryKey, async () => {
     const response = await axios.get(`${baseURL + endpoint}`).catch((err) => {
       console.log(err);
@@ -14,7 +14,7 @@ const executeQuery = (queryKey, endpoint) => {
 };
 
 const handleKitsuResponse = (queryKey, endpoint) => {
-  const res = executeQuery(queryKey, endpoint);
+  const res = ExecuteQuery(queryKey, endpoint);
   const data = res.data?.data;
 
   return { data: data, isLoading: res.isLoading, error: res.error };

@@ -3,10 +3,9 @@ import axios from "axios";
 
 const baseURL = import.meta.env.VITE_FIREBASE_FUNCTIONS_URL;
 
-const executeQuery = (queryKey, endpoint) => {
+const ExecuteQuery = (queryKey, endpoint) => {
   return useQuery(queryKey, async () => {
     const response = await axios.get(`${baseURL + endpoint}`).catch((err) => {
-      console.log(err);
       throw err;
     });
 
@@ -15,7 +14,7 @@ const executeQuery = (queryKey, endpoint) => {
 };
 
 const handleRawgResponse = (queryKey, endpoint) => {
-  const res = executeQuery(queryKey, endpoint);
+  const res = ExecuteQuery(queryKey, endpoint);
   const data = res.data;
 
   return { data: data, isLoading: res.isLoading, error: res.error };

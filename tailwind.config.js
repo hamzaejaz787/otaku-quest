@@ -18,10 +18,18 @@ export default {
         fluid: "repeat(auto-fit,minmax(350px,1fr))",
       },
       height: {
-        "5px": "500px",
+        xs: "300px",
+        sm: "400px",
+        lg: "850px",
       },
+      width: { sm: "300px" },
       minHeight: {
         250: "150px",
+        xs: "350px",
+      },
+      maxWidth: {
+        xxs: "250px",
+        sm: "350px",
       },
     },
   },
