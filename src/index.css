@@ -58,6 +58,23 @@
   color: #991b1b;
 }
 
+.swiper-controls {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.swiper-controls:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (max-width: 500px) {
   .swiper-pagination-bullet {
     opacity: 0.9;

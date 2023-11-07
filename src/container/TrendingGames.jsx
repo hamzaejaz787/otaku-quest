@@ -5,6 +5,7 @@ import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const TrendingGames = () => {
   const { data, isLoading, error } = getTrendingGames();
@@ -24,7 +25,10 @@ const TrendingGames = () => {
       <Swiper
         rewind={true}
         autoHeight={false}
-        navigation={true}
+        navigation={{
+          nextEl: ".btn-next",
+          prevEl: ".btn-prev",
+        }}
         modules={[Navigation]}
         breakpoints={{
           1600: {
@@ -58,41 +62,58 @@ const TrendingGames = () => {
 
             return (
               <SwiperSlide key={id}>
-                <Link
-                  to={`/details/game/${id}`}
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  className="cursor-pointer"
-                >
-                  <div className="card group max-w-xxs h-xs 2xl:h-sm 2xl:max-w-xs relative rounded-lg overflow-hidden">
-                    <div className="h-full">
-                      <img
-                        src={background_image}
-                        className="h-full object-cover"
-                        alt={`${name} cover`}
-                      />
-                    </div>
+                <div className="relative">
+                  <Link
+                    to={`/details/game/${id}`}
+                    onClick={() => window.scrollTo({ top: 0 })}
+                    className="cursor-pointer"
+                  >
+                    <div className="card group max-w-xxs h-xs 2xl:h-sm 2xl:max-w-xs relative rounded-lg overflow-hidden">
+                      <div className="h-full">
+                        <img
+                          src={background_image}
+                          className="h-full object-cover"
+                          alt={`${name} cover`}
+                        />
+                      </div>
 
-                    <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 transition-all duration-200 ">
-                      <div className="h-full flex flex-col justify-end items-start p-2 ">
-                        <div className="flex items-start justify-between w-full">
-                          <h1 className="text-white md:text-lg font-semibold text-left">
-                            {name}
-                          </h1>
-                          <span className="block ml-2 bg-white py-1 px-2 text-xs rounded-full">
-                            {rating ? rating : ""}
-                          </span>
+                      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 transition-all duration-200 ">
+                        <div className="h-full flex flex-col justify-end items-start p-2 ">
+                          <div className="flex items-start justify-between w-full">
+                            <h1 className="text-white md:text-lg font-semibold text-left">
+                              {name}
+                            </h1>
+                            <span className="block ml-2 bg-white py-1 px-2 text-xs rounded-full">
+                              {rating ? rating : ""}
+                            </span>
+                          </div>
+
+                          <p className="text-white text-xs md:text-sm my-2">
+                            {genres.map((genre) => genre.name).join(", ")}
+                          </p>
                         </div>
-
-                        <p className="text-white text-xs md:text-sm my-2">
-                          {genres.map((genre) => genre.name).join(", ")}
-                        </p>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </SwiperSlide>
             );
           })}
+        <div className="trending-navigation">
+          <div className="btn-next swiper-controls absolute top-0 right-0 z-10 group">
+            <FaChevronRight
+              size={35}
+              className="text-red-500 group-hover:text-red-700 transition-all duration-200 cursor-pointer"
+            />
+          </div>
+
+          <div className="btn-prev swiper-controls absolute top-0 left-0 z-10 group">
+            <FaChevronLeft
+              size={35}
+              className="text-red-500 group-hover:text-red-700 transition-all duration-200 cursor-pointer"
+            />
+          </div>
+        </div>
       </Swiper>
     </section>
   );
