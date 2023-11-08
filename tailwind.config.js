@@ -31,6 +31,9 @@ export default {
         xxs: "250px",
         sm: "350px",
       },
+      maxHeight: {
+        lg: "420px",
+      },
     },
   },
   plugins: [],

@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className="py-8 ">
       <div className=" flex items-center space-x-8 py-3 px-4 max-w-screen-xl mx-auto md:px-8">
-        <div className="flex-none lg:flex-initial">
+        <div className="flex-none lg:flex-initial z-10">
           <Link to="/" onClick={() => setNavToggle(false)}>
             <img src={Logo} alt="Otaku Quest" width={120} height={50} />
           </Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-
+            {/* Mobile */}
             {user ? (
               <LoggedIn
                 handleLogout={handleLogout}
@@ -71,7 +71,8 @@ const Navbar = () => {
             )}
           </div>
 
-          <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
+          {/* Desktop */}
+          <div className="flex-1 flex items-center justify-end z-20 space-x-2 sm:space-x-6">
             <fieldset className="flex items-center space-x-2 border-2 rounded-full py-1 px-2 sm:px-4 transition-all duration-200 focus-within:border-red-600">
               <FiSearch
                 size={20}

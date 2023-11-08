@@ -7,7 +7,6 @@ import { getAnimeReviews } from "../data/Jikan";
 const AnimeReviews = () => {
   const { data, error, isLoading } = getAnimeReviews();
 
-  console.log(data);
   return <></>;
 };
 

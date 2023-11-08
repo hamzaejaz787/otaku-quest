@@ -100,14 +100,14 @@ const TrendingGames = () => {
             );
           })}
         <div className="trending-navigation">
-          <div className="btn-next swiper-controls absolute top-0 right-0 z-10 group">
+          <div className="btn-next swiper-controls absolute top-0 right-0 z-10 group rounded-tr-lg rounded-br-lg px-1">
             <FaChevronRight
               size={35}
               className="text-red-500 group-hover:text-red-700 transition-all duration-200 cursor-pointer"
             />
           </div>
 
-          <div className="btn-prev swiper-controls absolute top-0 left-0 z-10 group">
+          <div className="btn-prev swiper-controls absolute top-0 left-0 z-10 group rounded-tl-lg rounded-bl-lg px-1">
             <FaChevronLeft
               size={35}
               className="text-red-500 group-hover:text-red-700 transition-all duration-200 cursor-pointer"

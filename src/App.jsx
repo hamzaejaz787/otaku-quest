@@ -10,7 +10,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Games = lazy(() => import("./pages/Games"));
 const AnimeInfoKitsu = lazy(() => import("./components/AnimeInfoKitsu"));
 const AnimeInfoJikan = lazy(() => import("./components/AnimeInfoJikan"));
-const GameInfo = lazy(() => import("./components/GameInfo"));
+const GameInfo = lazy(() => import("./components/GameInfo/GameInfo"));
 const RecommendedTop = lazy(() => import("./container/RecommendedTop"));
 
 import Spinner from "./components/Spinner";
