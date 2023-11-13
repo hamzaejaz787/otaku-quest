@@ -40,7 +40,7 @@ const Games = () => {
               <div className="p-4">
                 <div className="flex justify-between items-start my-2">
                   <Link
-                    to={`/details/game/${id}`}
+                    to={`/games/game/${id}`}
                     className="text-white text-2xl font-bold hover:text-gray-400 transition-all duration-200"
                   >
                     <h1>{name}</h1>

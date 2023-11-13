@@ -64,7 +64,7 @@ const TrendingGames = () => {
               <SwiperSlide key={id}>
                 <div className="relative">
                   <Link
-                    to={`/details/game/${id}`}
+                    to={`/games/game/${id}`}
                     onClick={() => window.scrollTo({ top: 0 })}
                     className="cursor-pointer"
                   >

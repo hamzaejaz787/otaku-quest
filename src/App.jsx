@@ -32,8 +32,8 @@ function App() {
               <Route path="anime" element={<RecommendedTop />}>
                 <Route path="kitsu/:id" element={<AnimeInfoKitsu />} />
                 <Route path="jikan/:id" element={<AnimeInfoJikan />} />
-                <Route path="game/:id" element={<GameInfo />} />
               </Route>
+              <Route path="/games/game/:id" element={<GameInfo />} />
             </Routes>
           </Suspense>
         </main>
