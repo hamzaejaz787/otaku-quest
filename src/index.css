@@ -75,6 +75,10 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.swiper-controls:focus {
+  background: rgba(0, 0, 0, 0.75);
+}
+
 @media screen and (max-width: 500px) {
   .swiper-pagination-bullet {
     opacity: 0.9;

@@ -57,7 +57,7 @@ const TrendingGames = () => {
         slidesPerView={3}
       >
         {data &&
-          data.map((game) => {
+          data.results.map((game) => {
             const { id, name, background_image, rating, genres } = game;
 
             return (

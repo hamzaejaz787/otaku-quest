@@ -18,10 +18,7 @@ export function getTopAiring() {
 }
 
 export function getMostPopular() {
-  return handleJikanResponse(
-    ["most-popular"],
-    "top/anime?filter=bypopularity&limit=8"
-  );
+  return handleJikanResponse(["most-popular"], "top/anime?filter=bypopularity");
 }
 
 export function getAnimeReviews() {

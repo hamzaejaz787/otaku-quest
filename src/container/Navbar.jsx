@@ -11,7 +11,7 @@ import LoggedOut from "../components/LoggedOut";
 
 const navLinks = [
   { id: "games", title: "Games", href: "/games" },
-  { id: "anime", title: "Anime", href: "/details" },
+  { id: "anime", title: "Anime", href: "/anime" },
   { id: "manga", title: "Manga", href: "/manga" },
   { id: "support", title: "Support", href: "/support" },
 ];

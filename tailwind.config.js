@@ -16,8 +16,12 @@ export default {
       },
       gridTemplateColumns: {
         fluid: "repeat(auto-fit,minmax(350px,1fr))",
+        "fluid-2": "repeat(auto-fit, minmax(250px, 1fr))",
+        "fluid-3": "repeat(auto-fit, 320px)",
       },
       height: {
+        xmd: "180px",
+        xxl: "250px",
         xs: "300px",
         sm: "400px",
         lg: "850px",
@@ -32,6 +36,7 @@ export default {
         sm: "350px",
       },
       maxHeight: {
+        xxs: "175px",
         lg: "420px",
       },
     },

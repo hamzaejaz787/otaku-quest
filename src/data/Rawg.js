@@ -20,6 +20,10 @@ const handleRawgResponse = (queryKey, endpoint) => {
   return { data: data, isLoading: res.isLoading, error: res.error };
 };
 
+export function getGames() {
+  return handleRawgResponse(["games"], "games");
+}
+
 export function getRecentGames() {
   return handleRawgResponse(["recent-games"], "recent-games");
 }
@@ -30,4 +34,12 @@ export function getTrendingGames() {
 
 export function getGameById(id) {
   return handleRawgResponse([`game-${id}`], `game/${id}`);
+}
+
+export function getHighestRatedGames() {
+  return handleRawgResponse(["highest-rated"], "highest-rated");
+}
+
+export function getGameScreenshots(id) {
+  return handleRawgResponse([`game-${id}-images`], `games/${id}/screenshots`);
 }
