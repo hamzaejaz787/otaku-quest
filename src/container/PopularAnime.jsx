@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 
-const RecommendedTop = () => {
+const PopularAnime = () => {
   const { id } = useParams();
   const { data, error, isLoading } = getMostPopular();
 
@@ -19,7 +19,7 @@ const RecommendedTop = () => {
       {id ? (
         <Outlet />
       ) : (
-        <section className="p-4 grid grid-cols-fluid gap-8 justify-center 2xl:gap-14 2xl:grid-cols-fluid-3">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8 py-12 px-6 sm:px-10 2xl:px-20">
           {data &&
             data.map((anime) => {
               const {
@@ -35,27 +35,24 @@ const RecommendedTop = () => {
                 season,
               } = anime;
 
-              const { image_url, small_image_url, large_image_url } =
-                images.jpg;
+              const { image_url, large_image_url } = images.webp;
               return (
                 <div
                   key={mal_id}
-                  className="bg-gray-800 rounded-lg shadow-md overflow-hidden flex justify-between"
+                  className="bg-gray-800 rounded-lg shadow-md overflow-hidden flex justify-between flex-col"
                 >
                   <img
-                    src={image_url || small_image_url || large_image_url}
+                    src={large_image_url || image_url}
                     alt={`${title || title_english} cover`}
-                    className="max-w-xxs"
+                    className="w-full h-[250px] object-cover object-center"
                   />
 
-                  <div>
-                    <Link
-                      to={`/anime/jikan/${mal_id}`}
-                      className="text-white text-2xl font-bold hover:text-gray-400 transition-all duration-200"
-                    >
-                      <h1>{title || title_english}</h1>
-                    </Link>
-                  </div>
+                  <Link
+                    to={`/anime/jikan/${mal_id}`}
+                    className="text-white text-2xl p-4 text-center font-bold hover:text-red-500 transition-all duration-200"
+                  >
+                    <h1>{title || title_english}</h1>
+                  </Link>
                 </div>
               );
             })}
@@ -65,4 +62,4 @@ const RecommendedTop = () => {
   );
 };
 
-export default RecommendedTop;
+export default PopularAnime;

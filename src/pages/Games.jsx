@@ -1,8 +1,9 @@
-import { getGames } from "../data/Rawg";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
+
+import { getGames } from "../data/Rawg";
+import Spinner from "../components/Spinner";
 
 const Games = () => {
   const { data, isLoading, error } = getGames();
@@ -13,7 +14,7 @@ const Games = () => {
 
   if (isLoading) return <Spinner />;
   return (
-    <section className="p-4 grid grid-cols-fluid-2 gap-8 justify-center 2xl:gap-14 2xl:grid-cols-fluid-3">
+    <section className="p-4 grid gap-8 justify-center 2xl:gap-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
       {data &&
         data.map((game) => {
           const { name, released, background_image, rating, id, metacritic } =
@@ -34,14 +35,14 @@ const Games = () => {
                 src={background_image}
                 loading="lazy"
                 alt=""
-                className="h-xmd 2xl:h-xxl w-full object-cover object-center"
+                className="h-[250px] w-full object-cover object-center"
               />
 
-              <div className="p-4">
-                <div className="flex justify-between items-start my-2">
+              <div className="px-4 py-8 ">
+                <div className="flex gap-4 justify-between items-start">
                   <Link
                     to={`/games/game/${id}`}
-                    className="text-white text-2xl font-bold hover:text-gray-400 transition-all duration-200"
+                    className="text-white text-2xl font-bold hover:text-red-500 transition-all duration-200"
                   >
                     <h1>{name}</h1>
                   </Link>
@@ -59,10 +60,13 @@ const Games = () => {
                     </strong>
                   )}
                 </div>
-                <h2 className="text-white">
-                  Rating: <span>{rating}</span>
+                <h2 className="text-gray-200 pt-2 font-semibold">
+                  Rating: <span className="font-normal">{rating}</span>
                 </h2>
-                <h3 className="text-white">Relase Date: {formattedDate}</h3>
+                <h3 className="text-gray-200 font-semibold">
+                  Relase Date:{" "}
+                  <span className="font-normal">{formattedDate}</span>
+                </h3>
               </div>
             </div>
           );

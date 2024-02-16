@@ -6,7 +6,7 @@ const LoggedOut = ({ styles, navToggle }) => {
       <Link
         to="/login"
         onClick={navToggle}
-        className="block w-full text-sm text-center font-bold bg-red-800 md:ml-4 hover:bg-red-600 transition-all duration-200 text-white py-2 px-6 md:rounded-full"
+        className="block w-full text-sm text-center font-bold bg-red-800 lg:ml-4 hover:bg-red-600 transition-all duration-200 text-white py-2 px-6 rounded lg:rounded-full"
       >
         Log In
       </Link>

@@ -12,8 +12,8 @@ import LoggedOut from "../components/LoggedOut";
 const navLinks = [
   { id: "games", title: "Games", href: "/games" },
   { id: "anime", title: "Anime", href: "/anime" },
-  { id: "manga", title: "Manga", href: "/manga" },
-  { id: "support", title: "Support", href: "/support" },
+  { id: "manga", title: "Manga", href: "/" },
+  { id: "support", title: "Support", href: "/" },
 ];
 
 const Navbar = () => {
@@ -31,8 +31,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="py-8 ">
-      <div className=" flex items-center space-x-8 py-3 px-4 max-w-screen-xl mx-auto md:px-8">
+    <nav className="pt-8">
+      <div className="flex items-center space-x-8 py-3 mx-auto px-6 sm:px-10 2xl:px-20">
         <div className="flex-none lg:flex-initial z-10">
           <Link to="/" onClick={() => setNavToggle(false)}>
             <img src={Logo} alt="Otaku Quest" width={120} height={50} />
@@ -43,11 +43,11 @@ const Navbar = () => {
           <div
             className={`${
               navToggle ? "bg-gray-800" : ""
-            } absolute z-20 w-full top-24 left-0 p-4 lg:static lg:block ${
+            } absolute z-20 w-full top-24 left-0 p-6 pt-10 lg:p-4 lg:static lg:block space-y-5 ${
               navToggle ? "" : "hidden"
             }`}
           >
-            <ul className="mt-8 space-y-5 lg:flex lg:space-x-6 lg:space-y-0 lg:mt-0">
+            <ul className="space-y-5 lg:flex lg:space-x-6 lg:space-y-0 lg:mt-0">
               {navLinks.map((item) => (
                 <li
                   key={item.id}
@@ -64,15 +64,15 @@ const Navbar = () => {
               <LoggedIn
                 handleLogout={handleLogout}
                 navToggle={navToggle}
-                styles="mt-5 py-5 lg:hidden"
+                styles="lg:hidden"
               />
             ) : (
-              <LoggedOut styles="mt-5 pt-5 lg:hidden" navToggle={navToggle} />
+              <LoggedOut styles="lg:hidden" navToggle={navToggle} />
             )}
           </div>
 
           {/* Desktop */}
-          <div className="flex-1 flex items-center justify-end z-20 space-x-2 sm:space-x-6">
+          <div className="flex-1 flex items-center justify-end z-20 gap-4 sm:gap-6">
             <fieldset className="flex items-center space-x-2 border-2 rounded-full py-1 px-2 sm:px-4 transition-all duration-200 focus-within:border-red-600">
               <FiSearch
                 size={20}

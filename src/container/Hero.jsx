@@ -27,7 +27,6 @@ const Hero = () => {
         autoHeight={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper"
       >
         {data &&
           data.map((anime) => {

@@ -23,7 +23,7 @@ const TrendingGames = () => {
       </h1>
 
       <Swiper
-        rewind={true}
+        loop={true}
         autoHeight={false}
         navigation={{
           nextEl: ".btn-next",
@@ -55,6 +55,7 @@ const TrendingGames = () => {
         }}
         spaceBetween={10}
         slidesPerView={3}
+        grabCursor
       >
         {data &&
           data.results.map((game) => {
@@ -68,7 +69,7 @@ const TrendingGames = () => {
                     onClick={() => window.scrollTo({ top: 0 })}
                     className="cursor-pointer"
                   >
-                    <div className="card group max-w-xxs h-xs 2xl:h-sm 2xl:max-w-xs relative rounded-lg overflow-hidden">
+                    <div className="card group max-w-[250px] w-full h-[300px] 2xl:h-[400px] 2xl:max-w-xs relative rounded-lg overflow-hidden">
                       <div className="h-full">
                         <img
                           src={background_image}
@@ -77,18 +78,18 @@ const TrendingGames = () => {
                         />
                       </div>
 
-                      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 transition-all duration-200 ">
-                        <div className="h-full flex flex-col justify-end items-start p-2 ">
-                          <div className="flex items-start justify-between w-full">
+                      <div className="absolute top-0 left-0 w-full h-full bg-black/25 group-hover:bg-black/60 transition-all duration-200 ">
+                        <div className="h-full flex flex-col justify-end items-start px-2 pb-4 gap-2">
+                          <div className="flex items-start justify-between w-full gap-4">
                             <h1 className="text-white md:text-lg font-semibold text-left">
                               {name}
                             </h1>
-                            <span className="block ml-2 bg-white py-1 px-2 text-xs rounded-full">
+                            <span className="block bg-red-600 text-white font-semibold py-1 px-2 text-xs rounded-full">
                               {rating ? rating : ""}
                             </span>
                           </div>
 
-                          <p className="text-white text-xs md:text-sm my-2">
+                          <p className="text-gray-200 text-xs sm:text-sm">
                             {genres.map((genre) => genre.name).join(", ")}
                           </p>
                         </div>

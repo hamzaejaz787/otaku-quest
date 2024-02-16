@@ -11,7 +11,7 @@ const Games = lazy(() => import("./pages/Games"));
 const AnimeInfoKitsu = lazy(() => import("./components/AnimeInfoKitsu"));
 const AnimeInfoJikan = lazy(() => import("./components/AnimeInfoJikan"));
 const GameInfo = lazy(() => import("./components/GameInfo/GameInfo"));
-const RecommendedTop = lazy(() => import("./container/RecommendedTop"));
+const PopularAnime = lazy(() => import("./container/PopularAnime"));
 
 import Spinner from "./components/Spinner";
 
@@ -29,7 +29,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/games" element={<Games />} />
 
-              <Route path="anime" element={<RecommendedTop />}>
+              <Route path="anime" element={<PopularAnime />}>
                 <Route path="kitsu/:id" element={<AnimeInfoKitsu />} />
                 <Route path="jikan/:id" element={<AnimeInfoJikan />} />
               </Route>
